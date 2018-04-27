@@ -42,4 +42,24 @@ public class AccountDBRepository implements IAccountRepository{
 		return "{\"message\":\"Account created\"}";
 	}
 
+	@Override
+	@Transactional(REQUIRED)
+	public String deleteAccount(Long id) {
+		Account accounts = findAccount(new Long(id));
+		
+		if(accounts != null) {
+			manager.remove(accounts);
+			
+			return "{\"message\":\"Account Deleted\"}";
+		}else {
+			return "{\"message\":\"Account not found\"}";
+		}
+		
+	}
+
+	private Account findAccount(Long id) {
+
+		return manager.find(Account.class, id);
+	}
+
 }

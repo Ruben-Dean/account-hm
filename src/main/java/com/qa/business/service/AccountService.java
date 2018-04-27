@@ -21,4 +21,10 @@ public class AccountService implements IAccountService{
 		return repo.createAccount(JSONAccount);
 	}
 
+	@Override
+	public String deleteAccount(Long id) {
+		
+		return repo.deleteAccount(id);
+	}
+
 }
