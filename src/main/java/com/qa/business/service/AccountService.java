@@ -33,4 +33,10 @@ public class AccountService implements IAccountService{
 		return repo.updateAccount(JSONAccount);
 	}
 
+	@Override
+	public String listAAccount(Long id) {
+		
+		return repo.ListAAccount(id);
+	}
+
 }

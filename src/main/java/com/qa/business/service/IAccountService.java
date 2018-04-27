@@ -9,4 +9,6 @@ public interface IAccountService {
 	String deleteAccount(Long id);
 	
 	String updateAccount(String JSONAccount);
+	
+	String listAAccount(Long id);
 }

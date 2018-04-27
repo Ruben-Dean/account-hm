@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
@@ -28,10 +29,15 @@ public class AccountDBRepository implements IAccountRepository{
 	private JSONUtil util;
 	
 	@Override
-	public String listAllAccounts() {
+	public  String listAllAccounts() {
 		Query query = manager.createQuery("SELECT a FROM Account a");
 		Collection<Account> accounts = (Collection<Account>) query.getResultList();
-		return util.getJSONForObject(accounts);
+		
+		if(accounts.size() == 0) {
+			return "{\"message\":\"ERROR No Accounts\"}";
+		}else {
+			return util.getJSONForObject(accounts);
+		}
 	}
 
 	@Override
@@ -80,4 +86,16 @@ public class AccountDBRepository implements IAccountRepository{
 		
 	}
 
+	@Override
+	public String ListAAccount(Long id) {
+		Account account = findAccount(id);
+		if(account != null) {
+			return util.getJSONForObject(account);
+		}else {
+			return "{\"message\":\"Account not found\"}";
+		}
+		
+	}
+	
+	
 }
