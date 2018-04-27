@@ -62,4 +62,22 @@ public class AccountDBRepository implements IAccountRepository{
 		return manager.find(Account.class, id);
 	}
 
+	@Override
+	@Transactional(REQUIRED)
+	public String updateAccount(String accountJSON) {
+		Account updateAccount = util.getObjectForJSON(accountJSON, Account.class);
+		Account accounts = findAccount(new Long(updateAccount.getAccountNumber()));
+		
+		if(accounts != null) {
+			accounts = updateAccount;
+			manager.merge(updateAccount);
+			
+			return "{\"message\":\"Account updated\"}";
+		}else {
+			return "{\"message\":\"Could not update account\"}";
+			
+		}
+		
+	}
+
 }

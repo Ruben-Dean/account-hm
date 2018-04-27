@@ -7,4 +7,6 @@ public interface IAccountService {
 	String createAccount(String JSONAccount);
 	
 	String deleteAccount(Long id);
+	
+	String updateAccount(String JSONAccount);
 }
