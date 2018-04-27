@@ -15,4 +15,10 @@ public class AccountService implements IAccountService{
 		return repo.listAllAccounts();
 	}
 
+	@Override
+	public String createAccount(String JSONAccount) {
+		
+		return repo.createAccount(JSONAccount);
+	}
+
 }
