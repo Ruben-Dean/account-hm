@@ -6,5 +6,6 @@ public interface IAccountRepository {
 	String createAccount(String accountJSON);
 	String deleteAccount(Long id);
 	String updateAccount(String accountJSON);
+	String ListAAccount(Long id);
 
 }

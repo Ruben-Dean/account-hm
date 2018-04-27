@@ -24,7 +24,6 @@ public class AccountEndpoint {
 		return service.listAllAccounts();
 	}
 	
-	
 	@POST
 	@Path("json")
 	@Produces({"application/json"})
@@ -44,6 +43,13 @@ public class AccountEndpoint {
 	@Produces({"application/json"})
 	public String updateAccount(String jsonString) {
 		return service.updateAccount(jsonString);
+	}
+	
+	@GET
+	@Path("json/{id}")
+	@Produces({"application/json"})
+	public String listAAccount(@PathParam("id")Long id) {
+		return service.listAAccount(id);
 	}
 	
 
