@@ -69,6 +69,11 @@ public class AccountDBServiceTest {
 		assertEquals(TestArray, repo.listAllAccounts());
 	}
 	
+	@Test
+	public void deleteAccountTest(){
+		String expected =repo.createAccount(TestObject);
+		assertEquals(expected, "{\"message\":\"Account created\"}");
+	}
 	
 	
 	
