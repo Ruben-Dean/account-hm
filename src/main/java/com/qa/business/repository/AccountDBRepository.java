@@ -5,6 +5,7 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 import java.util.Collection;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,6 +19,7 @@ import com.qa.persistence.domain.Account;
 import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
+@Default
 public class AccountDBRepository implements IAccountRepository{
 	
 	private static final Logger logger = Logger.getLogger(AccountDBRepository.class);
@@ -95,6 +97,14 @@ public class AccountDBRepository implements IAccountRepository{
 			return "{\"message\":\"Account not found\"}";
 		}
 		
+	}
+	
+	public void setManager(EntityManager manager) {
+		this.manager=manager;
+		
+	}
+	public void setUtil(JSONUtil jsonUtil) {
+		this.util=jsonUtil;
 	}
 	
 	
