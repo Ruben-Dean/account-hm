@@ -37,8 +37,8 @@ public class AccountDBServiceTest {
 	
 	private JSONUtil util;
 	
-	private static final String MockObject="{\"firstName\":\"Paul\",\"surname\":\"Pogba\",\"accountNumber\":1}";
-	private static final String MockArray="[{\"firstName\":\"Paul\",\"surname\":\"Pogba\",\"accountNumber\":1,\"generateAccountNumber\":false}]";
+	private static final String TestObject="{\"firstName\":\"Paul\",\"surname\":\"Pogba\",\"accountNumber\":1}";
+	private static final String TestArray="[{\"firstName\":\"Paul\",\"surname\":\"Pogba\",\"accountNumber\":1,\"generateAccountNumber\":false}]";
 	
 	
 	@Before
@@ -50,15 +50,26 @@ public class AccountDBServiceTest {
 	}
 	@Test
 	public void createAccountTest(){
-		String expected=repo.createAccount(MockObject);
+		String expected=repo.createAccount(TestObject);
 		assertEquals(expected,"{\"message\":\"Account created\"}");
 	}
 	
 	@Test
 	public void updateAccountTest(){
-		String expected=repo.updateAccount(MockObject);
+		String expected=repo.updateAccount(TestObject);
 		assertEquals(expected, "{\"message\":\"Could not update account\"}");
 	}
+	
+	@Test
+	public void listAllAccountsTest(){
+		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
+		List<Account> accounts=new ArrayList<Account>();
+		accounts.add(util.getObjectForJSON(repo.createAccount(TestObject), Account.class));
+		Mockito.when(query.getResultList()).thenReturn(accounts);
+		assertEquals(TestArray, repo.listAllAccounts());
+	}
+	
+	
 	
 	
 	
