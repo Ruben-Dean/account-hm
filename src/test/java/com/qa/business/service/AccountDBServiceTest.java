@@ -54,6 +54,12 @@ public class AccountDBServiceTest {
 		assertEquals(expected,"{\"message\":\"Account created\"}");
 	}
 	
+	@Test
+	public void updateAccountTest(){
+		String expected=repo.updateAccount(MockObject);
+		assertEquals(expected, "{\"message\":\"Could not update account\"}");
+	}
+	
 	
 	
 
