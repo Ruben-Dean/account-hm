@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Table with Add and Delete Row Feature</title>
+    <title>Account Management</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -108,7 +108,7 @@
                 var row = '<tr>' +
                     '<td><input type="text" class="form-control" name="Account Number" id="Account Number"></td>' +
                     '<td><input type="text" class="form-control" name="First Name" id="First Name"></td>' +
-                    '<td><input type="text" class="form-control" name="Second Name" id="Seond Name"></td>' +
+                    '<td><input type="text" class="form-control" name="Second Name" id="Second Name"></td>' +
                     '<td>' + actions + '</td>' +
                     '</tr>';
                 $("table").append(row);
@@ -165,11 +165,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel-body">
-            <button class="btn btn-primary" onclick="performGetRequest1()">Get Todos</button>
-            <button class="btn btn-warning" onclick="clearOutput()">Clear</button>
-            <div class="panel-body" id="getResult1"></div>
-        </div>
+
         <table class="table table-bordered">
             <thead>
             <tr>

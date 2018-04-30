@@ -1,0 +1,13 @@
+H2 Database: 
+The database used in this project is H2. H2 is a Java SQL in-memory database which was chosen because it carries a small footprint and is very fast as a result of it being in-memory.
+
+Java EE:
+The backend was created using java ee using both JDBC and JPA technologies. The backend consists of a persistence layer which maps objects to the database, business layer which contains the logic of the application and interoprability layer which is the endpoint of the back end and uses the JAX-RS API.
+
+Mockito:
+Mockito was used in this project for the purpose of test-driven development. Mockito allows the creation of mock or test double objects which allows you to re-create the real behaviour of an object.
+
+HTML, JavaScript, CSS:
+These technologies were used to create the front end of the application. HTML provided the basic structure of the front end which is enhanced by CSS and JavaScript by adding better presentation and layout with functionality and behaviours.
+
+
